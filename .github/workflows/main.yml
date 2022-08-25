@@ -27,7 +27,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-    
+      - name: RUN az Command
+        if: always()
+        run : |
+           az account show
+           az group list 
+
       - name: check java version
         run: java -version
     # running gradle build 
@@ -47,3 +52,5 @@ jobs:
         run: | 
          docker login -u ${{ secrets.dockerhubusername }} -p ${{ secrets.dockerhubpassword }}
          docker push danikr238/demo-kotlin2.0
+
+      
