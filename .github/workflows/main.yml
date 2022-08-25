@@ -34,6 +34,8 @@ jobs:
       - name: gradle build
         run: gradle build
       
+      - name: change permissions of gradlew
+        run: chmod +x gradlew
       - name: gradlew build
         run: ./gradlew build
       - name: docker version
