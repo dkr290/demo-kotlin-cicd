@@ -28,11 +28,10 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: RUN az Command
-        if: always()
         run : |
            az account show
            az group list 
-
+        if: always() 
       - name: check java version
         run: java -version
     # running gradle build 
