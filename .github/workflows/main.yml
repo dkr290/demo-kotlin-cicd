@@ -41,4 +41,9 @@ jobs:
       - name: docker version
         run: |
             docker -v
-            docker build .
+            docker build . -t danikr238/demo-kotlin2.0
+            docker images -a
+      - name: docker login
+        run: | 
+         docker login -u {{ secrets.dockerhubusername }} -p {{ secrets.dockerhubpassword }}
+         docker push danikr238/demo-kotlin2.0
