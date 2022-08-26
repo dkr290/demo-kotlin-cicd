@@ -28,7 +28,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Azure login
-        uses: azure/login@v1.4.3
+        uses: azure/actions/login@v1
         with: # Set Azure credentials secret as an input
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
