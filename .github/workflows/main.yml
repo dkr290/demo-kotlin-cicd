@@ -27,12 +27,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Azure login
+         uses: azure/login@v1
+        with:
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
+
       - name: RUN az Command
         run : |
            az account show
            az group list 
-        if: always() 
+     
       - name: check java version
+        if: always()
         run: java -version
     # running gradle build 
       - name: gradle build
