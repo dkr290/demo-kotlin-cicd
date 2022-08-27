@@ -43,6 +43,9 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           resource-group: aks-rg-dev
           cluster-name: aks-cluster-dev
+
+      - run: |
+          kubectl create namespace githubrg
      
       - name: check java version
         if: always()
