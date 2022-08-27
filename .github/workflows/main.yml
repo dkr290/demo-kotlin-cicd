@@ -52,12 +52,12 @@ jobs:
       - name: docker version and build
         run: |
             docker -v
-            docker build . -t danikr238/demo-kotlin3.0
+            docker build . -t danikr238/demo-kotlin2.0
             docker images -a
       - name: docker login and push
         run: | 
          docker login -u ${{ secrets.dockerhubusername }} -p ${{ secrets.dockerhubpassword }}
-         docker push danikr238/demo-kotlin3.0
+         docker push danikr238/demo-kotlin2.0
 
       - name: Get K8s context
         uses: azure/aks-set-context@v1
@@ -72,8 +72,8 @@ jobs:
           namespace: 'kotlinapp'
           manifests: |
                 manifests
-          strategy: canary
+          strategy: basic
           action: deploy
-          percentage: 25
+       
 
       

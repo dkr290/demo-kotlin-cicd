@@ -24,7 +24,7 @@ spec:
         app: kotlinapp
     spec:
       containers:
-      - image: danikr238/demo-kotlin3.0
+      - image: danikr238/demo-kotlin2.0
         name: demo-kotlin
         ports:
         - containerPort: 80
