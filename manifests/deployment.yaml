@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  
+  labels:
+    app: kotlinapp
+  name: kotlinapp
+  namespace: kotlinapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kotlinapp
+  
+  template:
+    metadata:
+      
+      labels:
+        app: kotlinapp
+    spec:
+      containers:
+      - image: danikr238/demo-kotlin2.0
+        name: demo-kotlin
+        ports:
+        - containerPort: 80

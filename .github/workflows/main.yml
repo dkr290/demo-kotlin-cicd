@@ -44,8 +44,14 @@ jobs:
           resource-group: aks-rg-dev
           cluster-name: aks-cluster-dev
 
-      - run: |
-          kubectl create namespace githubrg
+  
+      - uses: Azure/k8s-deploy@v3.1
+        with:
+          namespace: 'kotlinapp'
+          manifests: |
+                manifests
+ 
+    
      
       - name: check java version
         if: always()
