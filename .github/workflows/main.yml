@@ -36,6 +36,13 @@ jobs:
         run : |
            az account show
            az group list 
+
+      - name: Get K8s context
+        uses: azure/aks-set-context@v2.0
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          resource-group: aks-rg-dev
+          cluster-name: aks-cluster-dev
      
       - name: check java version
         if: always()
